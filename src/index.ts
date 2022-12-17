@@ -1,44 +1,38 @@
 import express from 'express';
-import './db/mongoose';
+import {connect} from 'mongoose';
+//import './db/mongoose';
 
-import {getCancionRouter} from './routers/cancionRouters/getCancion';
-import {postCancionRouter} from './routers/cancionRouters/postCancion';
-import {deleteCancionRouter} from './routers/cancionRouters/deleteCancion';
-import {patchCancionRouter} from './routers/cancionRouters/patchCancion';
+import {getUsuarioRouter} from './routers/usuarioRouters/getUsuario';
+import {postUsuarioRouter} from './routers/usuarioRouters/postUsuario';
+import {deleteUsuarioRouter} from './routers/usuarioRouters/deleteUsuario';
+import {patchUsuarioRouter} from './routers/usuarioRouters/patchUsuario';
 
-import {getArtistaRouter} from './routers/artistaRouters/getArtista';
-import {postArtistaRouter} from './routers/artistaRouters/postArtista';
-import {deleteArtistaRouter} from './routers/artistaRouters/deleteArtista';
-import {patchArtistaRouter} from './routers/artistaRouters/patchArtista';
-
-import {getPlaylistRouter} from './routers/playlistRouters/getPlaylist';
-import {postPlaylistRouter} from './routers/playlistRouters/postPlaylist';
-import {deletePlaylistRouter} from './routers/playlistRouters/deletePlaylist';
-import {patchPlaylistRouter} from './routers/playlistRouters/patchPlaylist';
 
 import {defaultRouter} from './routers/default';
+import { Mongoose } from 'mongoose';
 
 const app = express();
 app.use(express.json());
 
-app.use(postCancionRouter);
-app.use(getCancionRouter);
-app.use(patchCancionRouter);
-app.use(deleteCancionRouter);
-
-app.use(postArtistaRouter);
-app.use(getArtistaRouter);
-app.use(patchArtistaRouter);
-app.use(deleteArtistaRouter);
-
-app.use(postPlaylistRouter);
-app.use(getPlaylistRouter);
-app.use(patchPlaylistRouter);
-app.use(deletePlaylistRouter);
+app.use(postUsuarioRouter);
+app.use(getUsuarioRouter);
+app.use(patchUsuarioRouter);
+app.use(deleteUsuarioRouter);
 
 app.use(defaultRouter);
 
 const port = process.env.PORT || 3000;
+
+connect("mongodb+srv://test:test@cluster1.j5cwa87.mongodb.net/usuario?retryWrites=true&w=majority", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
+}).then(() => {
+  console.log('Connection to MongoDB server established');
+}).catch(error => {
+  console.log(error);
+});
 
 app.listen(port, () => {
   console.log(`Server is up on port ${port}`);

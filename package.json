@@ -1,7 +1,6 @@
 {
-  "name": "ull-p12",
+  "name": "sytw",
   "version": "1.0.0",
-  "description": "### Componentes del grupo que han realizado el proyecto: - José Javier Díaz González [(alu0101128894@ull.edu.es)](alu0101128894@ull.edu.es) - Daniel Hernández Fajardo [(alu0101320489@ull.edu.es)](alu0101320489@ull.edu.es) - Álvaro Rodríguez Gómez [(alu0101362953@ull.edu.es)](alu0101362953@ull.edu.es)",
   "main": "dist/index.js",
   "scripts": {
     "heroku-postbuild": "tsc",
@@ -41,6 +40,7 @@
     "typescript": "^4.6.4"
   },
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "chalk": "^4.1.2",
     "express": "^4.18.1",
     "inquirer": "^8.2.4",
