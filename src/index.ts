@@ -34,6 +34,8 @@ connect("mongodb+srv://test:test@cluster1.j5cwa87.mongodb.net/usuario?retryWrite
   console.log(error);
 });
 
+
+
 app.listen(port, () => {
   console.log(`Server is up on port ${port}`);
 });
