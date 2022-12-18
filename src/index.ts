@@ -23,7 +23,8 @@ app.use(defaultRouter);
 
 const port = process.env.PORT || 3000;
 
-connect("mongodb+srv://test:test@cluster1.j5cwa87.mongodb.net/usuario?retryWrites=true&w=majority", {
+//connect("mongodb+srv://test:test@cluster1.j5cwa87.mongodb.net/usuario?retryWrites=true&w=majority", {
+connect("mongodb://mongo:Gov2RPqPBa3P05QTtH5E@containers-us-west-172.railway.app:5805", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
